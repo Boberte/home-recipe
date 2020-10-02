@@ -40,40 +40,78 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.recipe-page {
-  margin: 2em;
-  padding: 2em;
-  border: 1px solid #cfcfcf;
-  border-radius: 10px;
-  background: white;
+#app {
+  .recipe-page {
+    margin: 2em;
+    padding: 2em;
+    border: 1px solid #cfcfcf;
+    border-radius: 10px;
+    background: white;
 
-  .recipe-header {
-    display: flex;
-    padding: 0 2em 0 0;
-    justify-content: flex-end;
-    background: aliceblue;
-    border-radius: 5px;
-    align-items: center;
+    .recipe-header {
+      display: flex;
+      padding: 0 2em 0 0;
+      justify-content: flex-end;
+      background: aliceblue;
+      border-radius: 5px;
+      align-items: center;
 
-    .title {
-      font-size: 2em;
-      margin-left: 1em;
+      .title {
+        font-size: 2em;
+        margin-left: 1em;
+        color: #1b2126;
+      }
+
+      .picture {
+        flex-grow: 1;
+        min-height: 8em;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
     }
 
-    .picture {
-      flex-grow: 1;
-      min-height: 8em;
-      background-size: contain;
-      background-repeat: no-repeat;
+    .content {
+      padding: 2rem;
+      white-space: pre-line;
+
+      .ingredients {
+        margin-bottom: 1.5rem;
+      }
     }
   }
 
-  .content {
-    padding: 2rem;
-    white-space: pre-line;
+  &.mobile {
+    .recipe-page {
+      margin: 0.7rem;
+      padding: 0;
 
-    .ingredients {
-      margin-bottom: 1.5rem;
+      .recipe-header {
+        padding: 0;
+        overflow: hidden;
+        justify-content: center;
+        align-items: flex-end;
+        position: relative;
+
+        .title {
+          font-size: 1.8em;
+          margin-left: 0;
+          position: absolute;
+          text-align: center;
+          background: linear-gradient(0deg, #e1e1e1 10%, transparent);
+          width: 100%;
+          padding: 2rem 0 0.5rem;
+        }
+
+        .picture {
+          min-height: 6rem;
+          background-size: 100% auto;
+          background-position-y: 35%;
+        }
+      }
+
+      .content {
+        padding: 1rem;
+      }
     }
   }
 }
