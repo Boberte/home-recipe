@@ -5,8 +5,8 @@ export const state = () => ({
 });
 
 export const mutations = {
-    ADD_RECIPE(state, recipeData) {
-        state.recipe.push({ id: date.now(), ...recipeData });
+    ADD_RECIPE(state, recipe) {
+        state.recipes.push(recipe);
     },
     SET_RECIPES(state, recipes) {
         state.recipes = recipes;
@@ -26,5 +26,10 @@ export const actions = {
     loadRecipes: ({ commit }) => {
         const recipes = getRecipes();
         commit("SET_RECIPES", recipes);
+    },
+    createRecipe: ({ commit }, recipe) => {
+        const id = Date.now(); 
+        commit("ADD_RECIPE", {id, ...recipe});
+        return id;
     }
 };

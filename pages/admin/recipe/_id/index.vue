@@ -2,7 +2,7 @@
   <div class="edit-recipe">
     <div class="title">
       שם המתכון:
-      <input type="text" name="Title" id="title" placeholder="עוגיות שוקולד" />
+      <input type="text" name="Title" id="title" placeholder="עוגיות שוקולד"  v-model="recipe.title"/>
     </div>
     מרכיבים:
     <textarea
@@ -11,6 +11,7 @@
       id="ingredients"
       cols="30"
       rows="10"
+      v-model="recipe.ingredients"
     ></textarea>
     הוראות הכנה:
     <textarea
@@ -19,16 +20,36 @@
       id="directions"
       cols="30"
       rows="18"
+      v-model="recipe.directions"
     ></textarea>
     <div class="action-btns">
-      <button class="cancle">Cancle</button>
-      <button class="save">Save</button>
+      <nuxt-link to="/"><button class="cancle">Cancle</button></nuxt-link>
+      <button class="save" @click="createNewRecipe">Save</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapActions } from 'vuex';
+export default {
+  data() {
+    return {
+      recipe: {
+        title: "",
+        ingredients: "", 
+        directions: "",
+        photoURL: ""
+      }
+    }
+  },
+  methods: {
+    ...mapActions(["createRecipe"]),
+    async createNewRecipe(){
+      const newId = await this.createRecipe(this.recipe);
+      this.$router.push(`/recipe/${newId}`);
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -63,14 +84,6 @@ export default {};
       margin: 0.5rem 0 1rem;
       border-radius: 10px;
       border: 2px solid #d3eaff;
-
-      // &.ingredients {
-      //   max-width: 75vw;
-      //   min-width: 45vw;
-      // }
-
-      // &.directions {
-      // }
     }
 
     input,
