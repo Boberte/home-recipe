@@ -51,7 +51,17 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    ['nuxt-mq']
   ],
+ 
+ 'mq': {
+    defaultBreakpoint: 'default',
+    breakpoints: {
+      mobile: 500,
+      tablet: 1250,
+      desktop: Infinity,
+    }
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/
