@@ -19,17 +19,27 @@
         {{ recipe.directions }}
       </p>
     </div>
+    <LinkButton :to="`/admin/recipe/${recipe.id}`">
+      <EditIcon class="edit-icon" />
+    </LinkButton>
   </div>
 </template>
 
 <script>
+import LinkButton from "@/components/LinkButton";
+import Edit from "@/components/Icons/Edit";
 import { mapGetters } from "vuex";
 export default {
+  name: "Recipe", 
+  components: {
+    EditIcon: Edit,
+    LinkButton,
+  },
   computed: {
     ...mapGetters(["getRecipeById"]),
-    recipe(){
+    recipe() {
       return this.getRecipeById(this.$route.params.id) || {};
-    }
+    },
   },
 };
 </script>
@@ -73,6 +83,12 @@ export default {
       .ingredients {
         margin-bottom: 1.5rem;
       }
+    }
+
+    .edit-icon {
+      width: 25px;
+      height: 25px;
+      color: #7c7c7c;
     }
   }
 

@@ -2,7 +2,13 @@
   <div class="edit-recipe">
     <div class="title">
       שם המתכון:
-      <input type="text" name="Title" id="title" placeholder="עוגיות שוקולד"  v-model="recipe.title"/>
+      <input
+        type="text"
+        name="Title"
+        id="title"
+        placeholder="עוגיות שוקולד"
+        v-model="recipe.title"
+      />
     </div>
     מרכיבים:
     <textarea
@@ -23,32 +29,54 @@
       v-model="recipe.directions"
     ></textarea>
     <div class="action-btns">
-      <nuxt-link to="/"><button class="cancle">Cancle</button></nuxt-link>
-      <button class="save" @click="createNewRecipe">Save</button>
+     <button class="cancle" @click="$router.go(-1)">Cancle</button>
+      <button class="save" @click="save">Save</button>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters, mapMutations } from "vuex";
 export default {
+  name: "RecipeForm",
   data() {
     return {
+      isNew: true,
       recipe: {
         title: "",
-        ingredients: "", 
+        ingredients: "",
         directions: "",
-        photoURL: ""
+        photoURL: "",
+      },
+    };
+  },
+  computed: {
+    ...mapGetters(["getRecipeById"]),
+  },
+  async mounted() {
+    setTimeout(() => {
+      if (this.$route.params.id) {
+        this.isNew = false;
+        this.recipe = { ...(this.getRecipeById(this.$route.params.id) || {}) };
       }
-    }
+    }, 0);
   },
   methods: {
     ...mapActions(["createRecipe"]),
-    async createNewRecipe(){
+    ...mapMutations({ updateRecipe: "UPDATE_RECIPE" }),
+    async createNewRecipe() {
       const newId = await this.createRecipe(this.recipe);
       this.$router.push(`/recipe/${newId}`);
-    }
-  }
+    },
+    save() {
+      if (this.isNew) {
+        this.createNewRecipe();
+      } else {
+        this.updateRecipe(this.recipe);
+        this.$router.push(`/recipe/${this.recipe.id}`);
+      }
+    },
+  },
 };
 </script>
 

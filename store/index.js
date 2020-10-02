@@ -10,6 +10,11 @@ export const mutations = {
     },
     SET_RECIPES(state, recipes) {
         state.recipes = recipes;
+    },
+    UPDATE_RECIPE(state, recipe) {
+        const index = state.recipes.findIndex(x => x.id == recipe.id);
+        if (index > 0)
+            state.recipes[index] = recipe;
     }
 };
 
@@ -28,8 +33,8 @@ export const actions = {
         commit("SET_RECIPES", recipes);
     },
     createRecipe: ({ commit }, recipe) => {
-        const id = Date.now(); 
-        commit("ADD_RECIPE", {id, ...recipe});
+        const id = Date.now();
+        commit("ADD_RECIPE", { id, ...recipe });
         return id;
     }
 };
