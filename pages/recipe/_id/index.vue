@@ -27,14 +27,9 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters(["getRecipeById"]),
-  },
-  data() {
-    return {
-      recipe: {},
-    };
-  },
-  mounted() {
-    this.recipe = this.getRecipeById(this.$route.params.id) || {};
+    recipe(){
+      return this.getRecipeById(this.$route.params.id) || {};
+    }
   },
 };
 </script>
@@ -42,11 +37,12 @@ export default {
 <style lang="scss" scoped>
 #app {
   .recipe-page {
-    margin: 2em;
+    margin: 2em auto;
     padding: 2em;
     border: 1px solid #cfcfcf;
     border-radius: 10px;
     background: white;
+    max-width: 1000px;
 
     .recipe-header {
       display: flex;

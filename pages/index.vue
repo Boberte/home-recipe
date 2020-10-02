@@ -1,9 +1,8 @@
 <template>
   <div class="container">
-    <!-- <nuxt-link to="/recipe/2">Salmon</nuxt-link> -->
-    <div class="btn add-new">
-      <nuxt-link to="/admin/recipe/2"><AddIcon class="add-icon" /></nuxt-link>
-    </div>
+    <nuxt-link to="/admin/recipe/2" class="btn add-new hover-bounce">
+      <AddIcon class="add-icon" />
+    </nuxt-link>
     <RecipeList />
   </div>
 </template>
@@ -11,19 +10,12 @@
 <script>
 import RecipeList from "@/components/RecipeList";
 import Add from "@/components/Icons/Add";
-import { mapActions } from "vuex";
 
 export default {
   components: {
     RecipeList,
     AddIcon: Add,
-  },
-  methods: {
-    ...mapActions(["loadRecipes"]),
-  },
-  mounted() {
-    this.$store.dispatch("loadRecipes", () => {});
-  },
+  }
 };
 </script>
 
@@ -43,7 +35,7 @@ export default {
     font-size: 30px;
     border-bottom-color: #b0d9fc;
     border-right-color: #98d0ff;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     margin: 0;

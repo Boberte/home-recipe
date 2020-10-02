@@ -1,6 +1,6 @@
 <template>
   <nuxt-link :to="`/recipe/${recipeId}`">
-    <div class="recipe-preview">
+    <div class="recipe-preview hover-bounce">
       <div class="title">{{ title }}</div>
       <div class="ingredients" :style="{ backgroundImage: `url(${photoURL})` }">
         <div class="ingredients-background"></div>
@@ -43,7 +43,6 @@ export default {
   align-items: center;
   width: 10rem;
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.38, 1.72, 0.58, 1.57);
   margin: 0.5rem;
 
   .ingredients,
@@ -69,7 +68,6 @@ export default {
     }
 
     .ingredients-background {
-      // background: linear-gradient(0deg, #ffffff21, #c1c1c1);
       background: linear-gradient(0deg, #ffffff21, #c1c1c1, white 135%);
       height: 100%;
       width: 100%;
@@ -88,8 +86,6 @@ export default {
   }
 
   &:hover {
-    transform: scale(1.05);
-
     .title {
       color: white;
     }
