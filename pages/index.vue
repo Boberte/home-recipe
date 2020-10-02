@@ -1,30 +1,58 @@
 <template>
   <div class="container">
     <!-- <nuxt-link to="/recipe/2">Salmon</nuxt-link> -->
-    <RecipePreview recipeId="2"
-      title="סלמון כבוש" :ingredients="'סלמון\nמלח\nסוכר\nעשבי תיבול'"
-      photoURL="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSL24vYB9oJpAjLPIjbFeP5O7xS50b_051ROA&usqp=CAU"
-    />
+    <div class="btn add-new">
+      <nuxt-link to="/admin/recipe/2"><AddIcon class="add-icon" /></nuxt-link>
+    </div>
+    <RecipeList />
   </div>
 </template>
 
 <script>
-import RecipePreview from "@/components/RecipePreview"
+import RecipeList from "@/components/RecipeList";
+import Add from "@/components/Icons/Add";
+import { mapActions } from "vuex";
+
 export default {
   components: {
-    RecipePreview
-  }
-}
+    RecipeList,
+    AddIcon: Add,
+  },
+  methods: {
+    ...mapActions(["loadRecipes"]),
+  },
+  mounted() {
+    this.$store.dispatch("loadRecipes", () => {});
+  },
+};
 </script>
 
-<style>
+<style lang="scss" scoped>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
+  .add-new {
+    background: white;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    text-align: center;
+    font-size: 30px;
+    border-bottom-color: #b0d9fc;
+    border-right-color: #98d0ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
+    .add-icon {
+      fill: #7c7c7c;
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
 </style>

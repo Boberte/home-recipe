@@ -15,7 +15,7 @@ export default {
   props: {
     recipeId: {
       required: true,
-      type: Number,
+      type: String | Number,
     },
     title: {
       required: true,
@@ -44,6 +44,7 @@ export default {
   width: 10rem;
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.38, 1.72, 0.58, 1.57);
+  margin: 0.5rem;
 
   .ingredients,
   .title {
@@ -56,6 +57,7 @@ export default {
     border-radius: 15px;
     overflow: hidden;
     position: relative;
+    background-size: cover;
 
     p {
       height: 100%;
@@ -67,7 +69,8 @@ export default {
     }
 
     .ingredients-background {
-      background: linear-gradient(0deg, #ffffff21, #c1c1c1);
+      // background: linear-gradient(0deg, #ffffff21, #c1c1c1);
+      background: linear-gradient(0deg, #ffffff21, #c1c1c1, white 135%);
       height: 100%;
       width: 100%;
       transition: opacity 0.5s ease-in-out;
@@ -81,6 +84,7 @@ export default {
     width: 100%;
     color: aliceblue;
     font-size: 18px;
+    text-align: center;
   }
 
   &:hover {

@@ -1,0 +1,17 @@
+<template>
+  <svg
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    viewBox="0 0 484.8 484.8"
+    style="enable-background: new 0 0 484.8 484.8"
+    xml:space="preserve"
+  >
+    <polygon
+      points="394.4,202.4 282.4,202.4 282.4,90.4 202.4,90.4 202.4,202.4 90.4,202.4 90.4,282.4 
+	202.4,282.4 202.4,394.4 282.4,394.4 282.4,282.4 394.4,282.4 "
+    />
+  </svg>
+</template>

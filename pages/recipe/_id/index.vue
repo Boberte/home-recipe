@@ -1,40 +1,42 @@
 <template>
   <div class="recipe-page">
     <div class="recipe-header">
-      <h1 class="title">מתכון - סלמון מעושן/מלוח</h1>
+      <h1 class="title">{{ recipe.title }}</h1>
       <div
         class="picture"
         :style="{
-          backgroundImage:
-            'url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSL24vYB9oJpAjLPIjbFeP5O7xS50b_051ROA&usqp=CAU)',
+          backgroundImage: `url(${recipe.photoURL})`,
         }"
       ></div>
     </div>
     <div class="content">
+      <h4>מרכיבים:</h4>
+      <p class="ingredients">
+        {{ recipe.ingredients }}
+      </p>
+      <h4>הוראות הכנה:</h4>
       <p>
-        מרכיבים:
-        3 כפות מלח
-        ½1 כפות סוכר
-        1.3-1.5 ק''ג סלמון
-
-        מערבבים את המלח והסוכר
-        שוטפים את הדג ומייבשים בנייר מגבת
-        שמים את התערובת על הדג מכל כיוון, מכסים תוך כדי הפעלת לחץ. ניתן להשתמש בבקבוק מים מלא או תבנית אפייה.
-        מניחים על השיש ומחכים 4 שעות
-        מורידים את הלחץ מכסים את הקופסא
-        שמים את הדג במקרר ומחכים 8 שעות.
-        שוטפים את המלח
-        חותכים
-        ושמים לפי מנות בנייר אלומיניום
-        מה שמתוכנן לאכילה נשמר במקרר
-        מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.
+        {{ recipe.directions }}
       </p>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["getRecipeById"]),
+  },
+  data() {
+    return {
+      recipe: {},
+    };
+  },
+  mounted() {
+    this.recipe = this.getRecipeById(this.$route.params.id) || {};
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -55,7 +57,6 @@ export default {};
 
     .title {
       font-size: 2em;
-      order: 2;
       margin-left: 1em;
     }
 
@@ -70,8 +71,10 @@ export default {};
   .content {
     padding: 2rem;
     white-space: pre-line;
-    text-align: right;
-    direction: rtl;
+
+    .ingredients {
+      margin-bottom: 1.5rem;
+    }
   }
 }
 </style>
