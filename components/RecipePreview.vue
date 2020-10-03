@@ -37,7 +37,6 @@ export default {
 
 <style lang="scss" scoped>
 .recipe-preview {
-  height: 15rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,14 +56,14 @@ export default {
     overflow: hidden;
     position: relative;
     background-size: cover;
+    min-height: 14rem;
 
     p {
-      height: 100%;
       width: 100%;
       padding: 1rem 0.5rem;
-      position: absolute;
-      top: 0;
+      position: relative;
       color: black;
+      z-index: 1;
     }
 
     .ingredients-background {

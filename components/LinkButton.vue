@@ -24,7 +24,7 @@ export default {
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   bottom: 1rem;
   right: 1rem;
   text-align: center;

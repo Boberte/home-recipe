@@ -34,3 +34,7 @@ html, body {
 .hover-bounce:hover {
     transform: scale(1.05);
 }
+
+a {
+    text-decoration: none;
+}

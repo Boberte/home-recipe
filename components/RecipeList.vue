@@ -1,5 +1,12 @@
 <template>
-  <div class="recipe-list">
+  <div
+    class="recipe-list"
+    :style="{
+      maxHeight: `${
+        $mq == 'mobile' ? (recipes.length / 2) * 18 : (recipes.length / 6) * 20
+      }rem`,
+    }"
+  >
     <RecipePreview
       v-for="(recipe, index) in recipes"
       :recipeId="recipe.id"
@@ -25,10 +32,14 @@ export default {
 };
 </script>
 
-<style>
-.recipe-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+<style lang="scss" scoped>
+#app {
+  .recipe-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+  }
 }
 </style>
