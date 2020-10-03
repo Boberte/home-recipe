@@ -2,9 +2,7 @@
   <div
     class="recipe-list"
     :style="{
-      maxHeight: `${
-        $mq == 'mobile' ? (recipes.length / 2) * 18 : (recipes.length / 6) * 20
-      }rem`,
+      maxHeight: `${(recipes.length / cardsInLine) * 19}rem`,
     }"
   >
     <RecipePreview
@@ -28,6 +26,9 @@ export default {
   },
   computed: {
     ...mapGetters(["recipes"]),
+    cardsInLine() {
+      return this.$mq == "mobile" ? 2 : this.$mq == "tablet" ? 4 : 6;
+    },
   },
 };
 </script>

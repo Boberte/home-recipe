@@ -52,6 +52,13 @@ export default {
   },
   computed: {
     ...mapGetters(["getRecipeById"]),
+    trimmedRecipe(){
+      return {
+        ...this.recipe, 
+        ingredients: this.recipe.ingredients.trim(),
+        directions: this.recipe.directions.trim()
+      }
+    }
   },
   async mounted() {
     setTimeout(() => {
@@ -65,14 +72,14 @@ export default {
     ...mapActions(["createRecipe"]),
     ...mapMutations({ updateRecipe: "UPDATE_RECIPE" }),
     async createNewRecipe() {
-      const newId = await this.createRecipe(this.recipe);
+      const newId = await this.createRecipe(this.trimmedRecipe);
       this.$router.push(`/recipe/${newId}`);
     },
     save() {
       if (this.isNew) {
         this.createNewRecipe();
       } else {
-        this.updateRecipe(this.recipe);
+        this.updateRecipe(this.trimmedRecipe);
         this.$router.push(`/recipe/${this.recipe.id}`);
       }
     },
