@@ -25,11 +25,11 @@
       class="directions"
       id="directions"
       cols="30"
-      rows="18"
+      :rows="$mq=='mobile' ? 13 :18"
       v-model="recipe.directions"
     ></textarea>
     <div class="action-btns">
-     <button class="cancle" @click="$router.go(-1)">Cancle</button>
+      <button class="cancle" @click="$router.go(-1)">Cancle</button>
       <button class="save" @click="save">Save</button>
     </div>
   </div>
@@ -112,6 +112,8 @@ export default {
       margin: 0.5rem 0 1rem;
       border-radius: 10px;
       border: 2px solid #d3eaff;
+      font-family: inherit;
+      font-size: inherit;
     }
 
     input,
@@ -161,6 +163,23 @@ export default {
     .edit-recipe {
       padding: 1rem;
       margin: 0.7rem;
+
+      textarea {
+        font-size: 14px;
+      }
+
+      .title {
+        font-size: 18px;
+        margin: 0;
+        text-align: center;
+
+        input {
+          padding: 0.4rem;
+          margin: 0.3rem 0 0.5rem;
+          width: 100%;
+          max-width: unset;
+        }
+      }
     }
   }
 }
