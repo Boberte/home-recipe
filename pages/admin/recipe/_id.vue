@@ -42,12 +42,13 @@
       </div>
     </div>
     <img
-      v-if="imageData"
-      :src="imageData"
+      v-if="recipe.photo"
+      :src="recipe.photo"
       @click="$refs.imageInput.click()"
     />
     <div v-else class="image-placeholder" @click="$refs.imageInput.click()">
-      <CameraIcon />Upload image
+      <CameraIcon />
+      <span>Upload image</span>
     </div>
   </div>
 </template>
@@ -62,12 +63,12 @@ export default {
   },
   data() {
     return {
-      imageData: "",
       isNew: true,
       recipe: {
         title: "",
         ingredients: "",
         directions: "",
+        photo: "",
       },
     };
   },
@@ -78,7 +79,6 @@ export default {
         ...this.recipe,
         ingredients: this.recipe.ingredients.trim(),
         directions: this.recipe.directions.trim(),
-        photo: this.imageData
       };
     },
   },
@@ -109,7 +109,7 @@ export default {
       if (ev.target.files && ev.target.files[0]) {
         var reader = new FileReader();
         reader.onload = (e) => {
-          this.imageData = e.target.result;
+          this.recipe.photo = e.target.result;
         };
         reader.readAsDataURL(ev.target.files[0]);
       }
@@ -143,15 +143,25 @@ export default {
       flex-direction: column;
       align-items: center;
       color: gray;
+      transition: all 0.3s ease-in-out;
 
       svg {
         color: #b3b3b3;
         width: 5rem;
       }
+      svg,
+      span {
+        transition: transform 0.3s cubic-bezier(0.38, 1.72, 0.58, 1.57);
+      }
+
       &:hover {
         background: #cecece;
         svg {
           color: #868585;
+          transform: scale(1.05);
+        }
+        span {
+          transform: scale(1.05);
         }
       }
     }
@@ -197,6 +207,7 @@ export default {
       input,
       textarea {
         outline-color: #b0d9fc;
+        cursor: pointer;
       }
 
       .action-btns {
