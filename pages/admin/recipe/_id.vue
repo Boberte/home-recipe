@@ -138,7 +138,7 @@ export default {
       border: 3px solid #b0d9fc;
       display: flex;
       justify-content: center;
-      object-fit: none;
+      object-fit: cover;
       cursor: pointer;
       flex-direction: column;
       align-items: center;
