@@ -2,7 +2,7 @@
   <div class="recipe-page">
     <div class="recipe-header">
       <h1 class="title">{{ recipe.title }}</h1>
-      <img :src="recipe.photoURL" class="picture" />
+      <img :src="recipe.photo" class="picture" />
     </div>
     <div class="content">
       <h4>מרכיבים:</h4>

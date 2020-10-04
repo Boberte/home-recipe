@@ -10,7 +10,7 @@
       :recipeId="recipe.id"
       :title="recipe.title"
       :ingredients="recipe.ingredients"
-      :photoURL="recipe.photoURL"
+      :photo="recipe.photo"
       :key="index"
     />
   </div>

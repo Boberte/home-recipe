@@ -42,8 +42,8 @@
       </div>
     </div>
     <img
-      v-if="imagePreview"
-      :src="imagePreview"
+      v-if="imageData"
+      :src="imageData"
       @click="$refs.imageInput.click()"
     />
     <div v-else class="image-placeholder" @click="$refs.imageInput.click()">
@@ -62,13 +62,12 @@ export default {
   },
   data() {
     return {
-      imagePreview: "",
+      imageData: "",
       isNew: true,
       recipe: {
         title: "",
         ingredients: "",
         directions: "",
-        photoURL: "",
       },
     };
   },
@@ -79,6 +78,7 @@ export default {
         ...this.recipe,
         ingredients: this.recipe.ingredients.trim(),
         directions: this.recipe.directions.trim(),
+        photo: this.imageData
       };
     },
   },
@@ -109,7 +109,7 @@ export default {
       if (ev.target.files && ev.target.files[0]) {
         var reader = new FileReader();
         reader.onload = (e) => {
-          this.imagePreview = e.target.result;
+          this.imageData = e.target.result;
         };
         reader.readAsDataURL(ev.target.files[0]);
       }

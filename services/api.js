@@ -21,7 +21,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://foodtasia.com/wp-content/uploads/2020/04/carrot-cake-6-683x1024.jpg"
+        photo: "https://foodtasia.com/wp-content/uploads/2020/04/carrot-cake-6-683x1024.jpg"
     },
     {
         id: 2,
@@ -40,7 +40,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSL24vYB9oJpAjLPIjbFeP5O7xS50b_051ROA&usqp=CAU"
+        photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSL24vYB9oJpAjLPIjbFeP5O7xS50b_051ROA&usqp=CAU"
     },
     {
         id: 3,
@@ -61,7 +61,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 4,
@@ -86,7 +86,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 5,
@@ -111,7 +111,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 6,
@@ -132,7 +132,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 7,
@@ -158,7 +158,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 8,
@@ -179,7 +179,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 9,
@@ -205,7 +205,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 10,
@@ -226,7 +226,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 11,
@@ -252,7 +252,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 12,
@@ -273,7 +273,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 13,
@@ -294,7 +294,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 14,
@@ -315,7 +315,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 15,
@@ -336,7 +336,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 16,
@@ -357,7 +357,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 17,
@@ -378,7 +378,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 18,
@@ -399,7 +399,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 19,
@@ -420,7 +420,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 20,
@@ -441,7 +441,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 21,
@@ -462,7 +462,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 22,
@@ -483,7 +483,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 23,
@@ -504,7 +504,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 24,
@@ -525,7 +525,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 25,
@@ -546,7 +546,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 26,
@@ -567,7 +567,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 27,
@@ -588,7 +588,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 28,
@@ -609,7 +609,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
+        photo: "https://detoxinista.com/wp-content/uploads/2013/05/cabbage-salad-recipe.jpg"
     },
     {
         id: 29,
@@ -635,7 +635,7 @@ const getRecipes = ()=>  {
         ושמים לפי מנות בנייר אלומיניום
         מה שמתוכנן לאכילה נשמר במקרר
         מה שלא מתוכנן לאכילה נשמר במקפיא עד שבוע.`,
-        photoURL: "https://storcpdkenticomedia.blob.core.windows.net/media/recipemanagementsystem/media/recipe-media-files/recipes/retail/x17/18134-five-star-chocolate-chip-cookies-600x600.jpg?ext=.jpg"
+        photo: "https://storcpdkenticomedia.blob.core.windows.net/media/recipemanagementsystem/media/recipe-media-files/recipes/retail/x17/18134-five-star-chocolate-chip-cookies-600x600.jpg?ext=.jpg"
     }];
 }
 
