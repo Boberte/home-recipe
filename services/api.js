@@ -1,5 +1,22 @@
 
-const getRecipes = ()=>  {
+const axios = require('axios');
+ 
+async function getRecipes(){
+    let recipes = [];
+    try {
+        const response = await axios.get('https://home-recipes-api-server.herokuapp.com/recipe');
+        if(response.data && response.data.recipes){
+            recipes = response.data.recipes;
+        }
+    } catch(err) {
+        console.log(err)
+    }
+
+    return recipes;
+}
+
+
+const getRecipes2 = ()=>  {
     return [{
         id: 1,
         title: "עוגת גזר",

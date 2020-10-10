@@ -2,7 +2,7 @@
   <div
     class="recipe-list"
     :style="{
-      maxHeight: `${(recipes.length / cardsInLine) * 19}rem`,
+      maxHeight: `${maxHeight}rem`,
     }"
   >
     <RecipePreview
@@ -29,6 +29,9 @@ export default {
     cardsInLine() {
       return this.$mq == "mobile" ? 2 : this.$mq == "tablet" ? 4 : 6;
     },
+    maxHeight(){
+      return Math.max((recipes.length / cardsInLine), 1) * 19;
+    }
   },
 };
 </script>

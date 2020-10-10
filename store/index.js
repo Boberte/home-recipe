@@ -28,8 +28,8 @@ export const getters = {
 };
 
 export const actions = {
-    loadRecipes: ({ commit }) => {
-        const recipes = getRecipes();
+    loadRecipes: async ({ commit }) => {
+        const recipes = await getRecipes();
         commit("SET_RECIPES", recipes);
     },
     createRecipe: ({ commit }, recipe) => {
