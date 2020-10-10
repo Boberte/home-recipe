@@ -2,12 +2,7 @@
   <div class="recipe-page">
     <div class="recipe-header">
       <h1 class="title">{{ recipe.title }}</h1>
-      <div
-        class="picture"
-        :style="{
-          backgroundImage: `url(${recipe.photoURL})`,
-        }"
-      ></div>
+      <img :src="recipe.photo" class="picture" />
     </div>
     <div class="content">
       <h4>מרכיבים:</h4>
@@ -30,11 +25,19 @@ import LinkButton from "@/components/LinkButton";
 import Edit from "@/components/Icons/Edit";
 import { mapGetters } from "vuex";
 export default {
-  name: "Recipe", 
+  name: "Recipe",
   components: {
     EditIcon: Edit,
     LinkButton,
   },
+  // data(){
+  //   return {
+  //     recipe: {}
+  //   };
+  // },
+  // mounted(){
+  //   this.recipe = this.getRecipeById(this.$route.params.id);
+  // },
   computed: {
     ...mapGetters(["getRecipeById"]),
     recipe() {
@@ -53,26 +56,27 @@ export default {
     border-radius: 10px;
     background: white;
     max-width: 1000px;
+    display: flex;
 
     .recipe-header {
       display: flex;
-      padding: 0 2em 0 0;
-      justify-content: flex-end;
+      padding: 0.7rem;
+      justify-content: space-between;
       background: aliceblue;
       border-radius: 5px;
       align-items: center;
+      flex-direction: column;
+      flex-basis: 35%;
 
       .title {
         font-size: 2em;
-        margin-left: 1em;
+        margin: 1em 0;
         color: #1b2126;
       }
 
       .picture {
-        flex-grow: 1;
-        min-height: 8em;
-        background-size: contain;
-        background-repeat: no-repeat;
+        width: 100%;
+        object-fit: contain;
       }
     }
 
@@ -92,10 +96,12 @@ export default {
     }
   }
 
+  &.tablet,
   &.mobile {
     .recipe-page {
       margin: 0.7rem;
       padding: 0;
+      flex-direction: column;
 
       .recipe-header {
         padding: 0;
@@ -103,10 +109,11 @@ export default {
         justify-content: center;
         align-items: flex-end;
         position: relative;
+        flex-direction: row;
 
         .title {
           font-size: 1.8em;
-          margin-left: 0;
+          margin: 0;
           position: absolute;
           text-align: center;
           background: linear-gradient(0deg, #e1e1e1 10%, transparent);
@@ -115,14 +122,28 @@ export default {
         }
 
         .picture {
-          min-height: 6rem;
-          background-size: 100% auto;
-          background-position-y: 35%;
+          height: 6rem;
+          width: 100%;
+          object-fit: cover;
+          object-position: center;
         }
       }
 
       .content {
         padding: 1rem;
+      }
+    }
+  }
+
+  &.tablet {
+    .recipe-page {
+      .recipe-header {
+        .title {
+          height: 8vh;
+        }
+        .picture {
+          height: 30vh;
+        }
       }
     }
   }

@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "nuxt": "^2.14.0",
     "nuxt-mq": "^2.0.1",
     "vuex": "^3.5.1"

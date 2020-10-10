@@ -2,7 +2,7 @@
   <nuxt-link :to="`/recipe/${recipeId}`">
     <div class="recipe-preview hover-bounce">
       <div class="title">{{ title }}</div>
-      <div class="ingredients" :style="{ backgroundImage: `url(${photoURL})` }">
+      <div class="ingredients" :style="{ backgroundImage: `url(${photo})` }">
         <div class="ingredients-background"></div>
         <p>{{ ingredients }}</p>
       </div>
@@ -26,7 +26,7 @@ export default {
       default: "",
       type: String,
     },
-    photoURL: {
+    photo: {
       required: false,
       default: "",
       type: String,
@@ -77,7 +77,7 @@ export default {
     }
 
     .title {
-      height: 2.2rem;
+      // height: 2.2rem;
       padding: 0.2rem 1rem;
       width: 100%;
       color: aliceblue;
