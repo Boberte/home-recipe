@@ -91,17 +91,16 @@ export default {
     }, 0);
   },
   methods: {
-    ...mapActions(["createRecipe"]),
-    ...mapMutations({ updateRecipe: "UPDATE_RECIPE" }),
+    ...mapActions(["createRecipe", "updateRecipe"]),
     async createNewRecipe() {
       const newId = await this.createRecipe(this.trimmedRecipe);
       this.$router.push(`/recipe/${newId}`);
     },
-    save() {
+    async save() {
       if (this.isNew) {
         this.createNewRecipe();
       } else {
-        this.updateRecipe(this.trimmedRecipe);
+        await this.updateRecipe(this.trimmedRecipe);
         this.$router.push(`/recipe/${this.recipe.id}`);
       }
     },

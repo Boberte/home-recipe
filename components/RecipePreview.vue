@@ -77,7 +77,7 @@ export default {
     }
 
     .title {
-      height: 2.2rem;
+      // height: 2.2rem;
       padding: 0.2rem 1rem;
       width: 100%;
       color: aliceblue;

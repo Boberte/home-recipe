@@ -30,6 +30,14 @@ export default {
     EditIcon: Edit,
     LinkButton,
   },
+  // data(){
+  //   return {
+  //     recipe: {}
+  //   };
+  // },
+  // mounted(){
+  //   this.recipe = this.getRecipeById(this.$route.params.id);
+  // },
   computed: {
     ...mapGetters(["getRecipeById"]),
     recipe() {

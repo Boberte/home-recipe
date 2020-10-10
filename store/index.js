@@ -1,4 +1,4 @@
-const { getRecipes } = require("../services/api.js");
+const { getRecipes, createRecipe, updateRecipe, deleteRecipe } = require("../services/api.js");
 
 export const state = () => ({
     recipes: []
@@ -13,8 +13,13 @@ export const mutations = {
     },
     UPDATE_RECIPE(state, recipe) {
         const index = state.recipes.findIndex(x => x.id == recipe.id);
-        if (index > 0)
+        if (index >= 0)
             state.recipes[index] = recipe;
+    },
+    REMOVE_RECIPE(state, recipe) {
+        const index = state.recipes.findIndex(x => x.id == recipe.id);
+        if (index >= 0)
+            state.recipes.splice(index, 1);
     }
 };
 
@@ -32,9 +37,19 @@ export const actions = {
         const recipes = await getRecipes();
         commit("SET_RECIPES", recipes);
     },
-    createRecipe: ({ commit }, recipe) => {
-        const id = Date.now();
-        commit("ADD_RECIPE", { id, ...recipe });
-        return id;
+    createRecipe: async ({ commit }, recipeData) => {
+        const recipe = await createRecipe(recipeData);
+        commit("ADD_RECIPE", recipe);
+        return recipe.id;
+    },
+    updateRecipe: async ({ commit }, recipe) => {
+        const res = await updateRecipe(recipe);
+        commit("UPDATE_RECIPE", recipe);
+        return recipe;
+    },
+    deleteRecipe: async ({ commit }, recipe) => {
+        const res = await deleteRecipe(recipe);
+        commit("REMOVE_RECIPE", recipe);
+        return recipe;
     }
 };

@@ -15,7 +15,42 @@ async function getRecipes(){
 
     return recipes;
 }
+async function createRecipe(recipe){
+    try {
+        const response = await axios.put(`${API_SERVER_URL}/recipe`, recipe);
+        if(response.data){
+            return response.data;
+        }
+    } catch(err) {
+        console.log(err)
+    }
+}
+async function updateRecipe(recipe){
+    try {
+        const response = await axios.post(`${API_SERVER_URL}/recipe`, recipe);
+        if(response.data){
+            return recipe;
+        }
+    } catch(err) {
+        console.log(err)
+    }
+    return {};
+}
+async function deleteRecipe(recipe){
+    try {
+        const response = await axios.delete(`${API_SERVER_URL}/recipe`, recipe);
+        if(response.data){
+            return recipe;
+        }
+    } catch(err) {
+        console.log(err)
+    }
+    return {};
+}
 
 export {
-    getRecipes
+    getRecipes,
+    createRecipe,
+    updateRecipe,
+    deleteRecipe
 }
