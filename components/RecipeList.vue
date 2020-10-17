@@ -30,7 +30,7 @@ export default {
       return this.$mq == "mobile" ? 2 : this.$mq == "tablet" ? 4 : 6;
     },
     maxHeight(){
-      return Math.max((this.recipes.length / this.cardsInLine), 1) * 19;
+      return Math.ceil(Math.max((this.recipes.length / this.cardsInLine), 1)) * 19;
     }
   },
 };
