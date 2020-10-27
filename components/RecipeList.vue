@@ -1,18 +1,19 @@
 <template>
-  <div
-    class="recipe-list"
-    :style="{
-      maxHeight: `${maxHeight}rem`,
-    }"
-  >
-    <RecipePreview
-      v-for="(recipe, index) in recipes"
-      :recipeId="recipe.id"
-      :title="recipe.title"
-      :ingredients="recipe.ingredients"
-      :photo="recipe.photo"
-      :key="index"
-    />
+  <div class="recipe-list">
+    <div
+      v-for="(col, i) in cardsCols"
+      class="recipe-list-col"
+      :key="i"
+    >
+      <RecipePreview
+        v-for="(recipe, index) in col"
+        :recipeId="recipe.id"
+        :title="recipe.title + `>${index} ${i}`"
+        :ingredients="recipe.ingredients"
+        :photo="recipe.photo"
+        :key="index"
+      />
+    </div>
   </div>
 </template>
 
@@ -29,10 +30,15 @@ export default {
     cardsInLine() {
       return this.$mq == "mobile" ? 2 : this.$mq == "tablet" ? 4 : 6;
     },
-    maxHeight(){
-      return Math.ceil(Math.max((this.recipes.length / this.cardsInLine), 1)) * 19;
+    cardsCols(){
+      return new Array(this.cardsInLine).fill().map((col, i) => this.recipes.reduce((acc, recipe, idx) => {
+        if((this.cardsInLine + idx) % this.cardsInLine === i){
+          acc.push(recipe)
+        }
+        return acc;
+      }, []))
     }
-  },
+  }
 };
 </script>
 
@@ -41,9 +47,15 @@ export default {
   .recipe-list {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-content: center;
+    align-items: flex-start;
+
+    .recipe-list-col {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      align-content: space-around;
+      flex-direction: column;
+    }
   }
 }
 </style>
