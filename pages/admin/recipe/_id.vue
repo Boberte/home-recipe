@@ -1,5 +1,6 @@
 <template>
   <div class="edit-recipe">
+    <canvas ref="canvasImage" hidden/>
     <div class="form">
       <div class="title">
         שם המתכון:
@@ -40,6 +41,7 @@
         <button class="cancle" @click="$router.go(-1)">Cancle</button>
         <button class="save" @click="save">Save</button>
       </div>
+      <Loader v-if="showLoader"/>
     </div>
     <img
       v-if="recipe.photo"
@@ -54,14 +56,18 @@
 </template>
 
 <script>
-import Camera from "@/components/Icons/Camera";
-import { mapActions, mapGetters, mapMutations } from "vuex";
+import Camera from '@/components/Icons/Camera';
+import Loader from '@/components/Loader';
+import { mapActions, mapGetters, mapMutations } from 'vuex';
+
 export default {
   name: "RecipeForm",
   components: {
     CameraIcon: Camera,
+    Loader
   },
   data() {
+    Loader
     return {
       isNew: true,
       recipe: {
@@ -70,6 +76,8 @@ export default {
         directions: "",
         photo: "",
       },
+      imgHelper: document.createElement("img"),
+      showLoader: false
     };
   },
   computed: {
@@ -93,14 +101,18 @@ export default {
   methods: {
     ...mapActions(["createRecipe", "updateRecipe"]),
     async createNewRecipe() {
+      this.showLoader = true;
       const newId = await this.createRecipe(this.trimmedRecipe);
+      this.showLoader = false;
       this.$router.push(`/recipe/${newId}`);
     },
     async save() {
       if (this.isNew) {
         this.createNewRecipe();
       } else {
+        this.showLoader = true;
         await this.updateRecipe(this.trimmedRecipe);
+        this.showLoader = false;
         this.$router.push(`/recipe/${this.recipe.id}`);
       }
     },
@@ -108,11 +120,40 @@ export default {
       if (ev.target.files && ev.target.files[0]) {
         var reader = new FileReader();
         reader.onload = (e) => {
-          this.recipe.photo = e.target.result;
+          this.imgHelper.src = e.target.result;
+          this.imgHelper.onload = () => {
+            this.recipe.photo = this.minifyImage();
+          }
         };
         reader.readAsDataURL(ev.target.files[0]);
       }
     },
+    minifyImage(){
+      const canvas = this.$refs.canvasImage;
+      var MAX_WIDTH = 800;
+      var MAX_HEIGHT = 600;
+      var width = this.imgHelper.width;
+      var height = this.imgHelper.height;
+
+      if (width > height) {
+        if (width > MAX_WIDTH) {
+          height *= MAX_WIDTH / width;
+          width = MAX_WIDTH;
+        }
+      } else {
+        if (height > MAX_HEIGHT) {
+          width *= MAX_HEIGHT / height;
+          height = MAX_HEIGHT;
+        }
+      }
+      canvas.width = width;
+      canvas.height = height;
+      var ctx = canvas.getContext("2d");
+      ctx.drawImage(this.imgHelper, 0, 0, width, height);
+
+      var dataurl = canvas.toDataURL("image/png");
+      return dataurl;
+    }
   },
 };
 </script>

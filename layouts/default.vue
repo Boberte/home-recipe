@@ -2,23 +2,30 @@
   <div id="app" :class="$mq">
     <div class="top-bar"></div>
     <nuxt-link to="/"><Logo class="logo hover-bounce" /></nuxt-link>
-    <Nuxt />
+    <Loader v-if="!recipesFetched"/>
+    <Nuxt v-else/>
   </div>
 </template>
 
 <script>
 import Logo from "@/components/Icons/Logo";
-import { mapActions } from "vuex";
+import Loader from "@/components/Loader";
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   components: {
     Logo,
+    Loader
+  },
+  computed: {
+    ...mapGetters(['recipesFetched'])
   },
   methods: {
     ...mapActions(["loadRecipes"]),
   },
-  mounted() {
-    this.$store.dispatch("loadRecipes", () => {});
-  },
+  created(){
+    this.loadRecipes();
+  }
 };
 </script>
 

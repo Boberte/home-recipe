@@ -1,7 +1,8 @@
 const { getRecipes, createRecipe, updateRecipe, deleteRecipe } = require("../services/api.js");
 
 export const state = () => ({
-    recipes: []
+    recipes: [],
+    recipesFetched: false
 });
 
 export const mutations = {
@@ -10,6 +11,9 @@ export const mutations = {
     },
     SET_RECIPES(state, recipes) {
         state.recipes = recipes;
+    },
+    SET_RECIPES_FETCHED(state, flag) {
+        state.recipesFetched = flag;
     },
     UPDATE_RECIPE(state, recipe) {
         const index = state.recipes.findIndex(x => x.id == recipe.id);
@@ -27,6 +31,9 @@ export const getters = {
     recipes: state => {
         return state.recipes;
     },
+    recipesFetched: state => {
+        return state.recipesFetched;
+    },
     getRecipeById: state => {
         return (id) => state.recipes.find(x => x.id == id);
     }
@@ -36,6 +43,7 @@ export const actions = {
     loadRecipes: async ({ commit }) => {
         const recipes = await getRecipes();
         commit("SET_RECIPES", recipes);
+        commit("SET_RECIPES_FETCHED", true);
     },
     createRecipe: async ({ commit }, recipeData) => {
         const recipe = await createRecipe(recipeData);

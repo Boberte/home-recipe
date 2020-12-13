@@ -8,7 +8,7 @@
       <RecipePreview
         v-for="(recipe, index) in col"
         :recipeId="recipe.id"
-        :title="recipe.title + `>${index} ${i}`"
+        :title="recipe.title"
         :ingredients="recipe.ingredients"
         :photo="recipe.photo"
         :key="index"
@@ -23,12 +23,12 @@ import RecipePreview from "@/components/RecipePreview";
 
 export default {
   components: {
-    RecipePreview,
+    RecipePreview
   },
   computed: {
-    ...mapGetters(["recipes"]),
+    ...mapGetters(['recipes']),
     cardsInLine() {
-      return this.$mq == "mobile" ? 2 : this.$mq == "tablet" ? 4 : 6;
+      return this.$mq == 'mobile' ? 2 : this.$mq == 'tablet' ? 4 : 6;
     },
     cardsCols(){
       return new Array(this.cardsInLine).fill().map((col, i) => this.recipes.reduce((acc, recipe, idx) => {
