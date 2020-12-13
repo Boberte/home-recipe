@@ -38,8 +38,8 @@
         v-model="recipe.directions"
       ></textarea>
       <div class="action-btns">
-        <button class="cancle" @click="$router.go(-1)">Cancle</button>
-        <button class="save" @click="save">Save</button>
+        <button class="save" :class="{disabled: disableBtn}" @click="save">שמירה</button>
+        <button class="cancle" :class="{disabled: disableBtn}" @click="$router.go(-1)">ביטול</button>
       </div>
       <Loader v-if="showLoader"/>
     </div>
@@ -77,7 +77,8 @@ export default {
         photo: "",
       },
       imgHelper: document.createElement("img"),
-      showLoader: false
+      showLoader: false,
+      disableBtn: false
     };
   },
   computed: {
@@ -107,6 +108,7 @@ export default {
       this.$router.push(`/recipe/${newId}`);
     },
     async save() {
+      this.disableBtn = true;
       if (this.isNew) {
         this.createNewRecipe();
       } else {
@@ -115,6 +117,7 @@ export default {
         this.showLoader = false;
         this.$router.push(`/recipe/${this.recipe.id}`);
       }
+      this.disableBtn = false;
     },
     readURL(ev) {
       if (ev.target.files && ev.target.files[0]) {
@@ -284,6 +287,11 @@ export default {
           &:active {
             filter: brightness(0.8);
             border-bottom-width: 0px;
+          }
+          &.disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+            background: #ffffff;
           }
         }
       }
